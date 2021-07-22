@@ -1,0 +1,41 @@
+#this xfrsrc can be used in an IBM i pfm as the ftp source command file.
+#this specific example was used to transfer IBM i installation ISO files from one 
+#partition to another via FTP.
+<user> <password>
+quote site namefmt 1
+namefmt 1
+bin
+cd /optvrt01
+mkdir v7r4
+mkdir v7r4ptfs
+lcd /optvrt01/v7r4
+cd /optvrt01/v7r4
+put BASE01.udf
+put GROUP1_1.udf
+put GROUP1_2.udf
+put GROUP1_3.udf
+put GROUP1_4.udf
+put GROUP1_5.udf
+lcd /optvrt01/v7r4ptfs
+cd /optvrt01/v7r4ptfs
+put C0303740_1.bin
+put S0789V01.BIN
+put S0789V02.BIN
+put S0789V03.BIN
+put S0789V04.BIN
+dir
+quote rcmd crtimgclg(v7r4) dir('/optvrt01/v7r4') crtdir(*no)
+quote rcmd crtimgclg(v7r4) dir('/optvrt01/v7r4ptfs') crtdir(*no)
+quote rcmd addimgclge imgclg(V7R4) fromfile('/optvrt01/v7r4/BASE01.udf') tofile(BASE01.udf)
+quote rcmd addimgclge imgclg(V7R4) fromfile('/optvrt01/v7r4/GROUP1_1.udf') tofile(GROUP1_1.udf)
+quote rcmd addimgclge imgclg(V7R4) fromfile('/optvrt01/v7r4/GROUP1_2.udf') tofile(GROUP1_2.udf)
+quote rcmd addimgclge imgclg(V7R4) fromfile('/optvrt01/v7r4/GROUP1_3.udf') tofile(GROUP1_3.udf)
+quote rcmd addimgclge imgclg(V7R4) fromfile('/optvrt01/v7r4/GROUP1_4.udf') tofile(GROUP1_4.udf)
+quote rcmd addimgclge imgclg(V7R4) fromfile('/optvrt01/v7r4/GROUP1_5.udf') tofile(GROUP1_5.udf)
+quote rcmd addimgclge imgclg(V7R4ptfs) fromfile('/optvrt01/v7r4ptfs/C0303740_1.bin') tofile(C0303740_1.bin)
+quote rcmd addimgclge imgclg(V7R4ptfs) fromfile('/optvrt01/v7r4ptfs/S0789V01.BIN') tofile(S0789V01.BIN)
+quote rcmd addimgclge imgclg(V7R4ptfs) fromfile('/optvrt01/v7r4ptfs/S0789V02.BIN') tofile(S0789V02.BIN)
+quote rcmd addimgclge imgclg(V7R4ptfs) fromfile('/optvrt01/v7r4ptfs/S0789V03.BIN') tofile(S0789V03.BIN)
+quote rcmd addimgclge imgclg(V7R4ptfs) fromfile('/optvrt01/v7r4ptfs/S0789V04.BIN') tofile(S0789V04.BIN)
+
+quit

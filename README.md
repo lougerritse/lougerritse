@@ -18,6 +18,12 @@ I have experience with many platforms and technologies.
 - CISCO MDS SAN Switches
 - .........
 
+This git hub will contain snippets and notes to assist in making a day easier and more productive.
+
+All contents in this github source is provided with no warranty written nor implied. Please use at your own discretion.
+
+Some code may not be completely developed by myself. I will include any license and resource information in each file themselves.
+
 <!---
 lougerritse/lougerritse is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 You can click the Preview link to take a look at your changes.
